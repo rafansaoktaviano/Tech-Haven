@@ -1,0 +1,13 @@
+@media (max-width: 750px) {
+  .col-sub {
+    display: none;
+  }
+  .sub {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+   .img-table {
+    display: none;
+   }
+  }

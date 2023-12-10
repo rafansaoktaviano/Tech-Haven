@@ -1,0 +1,8 @@
+@media (max-width: 500px) {
+    .wrap-admin {
+      flex-direction: column;
+    }
+   .left-admin {
+      width: 100%;
+   }
+  }

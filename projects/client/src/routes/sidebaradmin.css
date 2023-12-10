@@ -1,0 +1,22 @@
+@media (max-width: 1000px) {
+  .wrap-admin {
+    gap: 10px;
+  }
+  .col-date {
+    display: none;
+  }
+  .col-order{
+    width: 30%;
+  }
+}
+@media (max-width: 450px) {
+  .wrap-admin {
+    flex-direction: column;
+  }
+ .left-admin {
+    width: 100%;
+ }
+ .col-total{
+    display: none;
+ }
+}
