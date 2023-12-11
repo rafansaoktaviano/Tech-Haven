@@ -1,12 +1,12 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
+  username: "upa5smrwdzoll6fs",
+  password: "DJL3FZAIJ9N4SwrJCNYI",
+  database: "brvo4inoxlkicfyc6hnt",
+  host: "brvo4inoxlkicfyc6hnt-mysql.services.clever-cloud.com",
   dialect: "mysql",
-  host: "adminer2.purwadhikabootcamp.com",
-  username: "jcwd250203",
-  password: "jcwd250203",
-  database: "jcwd250203",
-
+  dialectModule: require("mysql2"),
 });
 
 module.exports = sequelize;
