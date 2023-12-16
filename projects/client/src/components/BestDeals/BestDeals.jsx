@@ -16,7 +16,7 @@ const BestDeals = () => {
     }
   }
 
-  const sixTopProducts = data.slice(0, 5);
+  const sixTopProducts = data?.slice(0, 5);
 
   useEffect(() => {
     getData()
