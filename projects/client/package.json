@@ -8,6 +8,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
     "@reduxjs/toolkit": "^1.9.7",
