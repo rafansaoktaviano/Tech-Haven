@@ -14,8 +14,8 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
 
-
 const CardProduct = ({ data, addToCart }) => {
+
   const datas = data;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,8 +28,6 @@ const CardProduct = ({ data, addToCart }) => {
       setModalIsOpen(false);
     }
   };
-
-
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = currentPage * itemsPerPage;
@@ -52,26 +50,25 @@ const CardProduct = ({ data, addToCart }) => {
       <div
         className={
           datas && datas.length > 0
-            ? `gap-2 w-full flex sm:grid sm:grid-cols-4 md:grid-cols-6 md:gap-10 flex-wrap justify-items-start items-stretch galeri sm:justify-start`
+            ? ` gap-2 w-full flex sm:grid sm:grid-cols-4 md:grid-cols-6 md:gap-10 flex-wrap justify-items-start items-stretch galeri sm:justify-start`
             : `flex justify-center align-middle galeri items-center gap-5`
         }
       >
         {datas && datas.length > 0 ? (
           currentData.map((item, index) => {
             return (
-
               <Card
                 className="pb-4 w-[40%] sm:w-[23%] md:w-[23%] lg:w-[20%] xl:w-[17%]"
                 isPressable
               >
                 {/* <CardBody className=" overflow-visible py-2"> */}
                 <Link className="" to={`/product/${item.id}`}>
-                  <Image
+                  <img
                     alt="Card background"
-                    className=" rounded-xl h-[230px] object-cover bg-slate-400 w-full gambar"
-                    src={`${process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE}${item.products_images[0].image.substring(
-                      6
-                    )}`}
+                    className=" rounded-xl h-[230px] object-cover  w-full gambar"
+                    src={`${
+                      process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
+                    }${item.products_images[0].image.substring(6)}`}
                   />
                   {/* </CardBody> */}
                   <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

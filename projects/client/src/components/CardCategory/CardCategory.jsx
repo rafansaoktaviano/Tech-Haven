@@ -30,7 +30,7 @@ const CardCategory = () => {
                   <div className=" rounded-lg flex justify-center text-gray-950">
                     <img
                       className="max-h-[150px] w-full"
-                      src={`http://localhost:8000${item.category_image.substring(
+                      src={`http://localhost:8000${item?.category_image?.substring(
                         6
                       )}`}
                       alt=""
