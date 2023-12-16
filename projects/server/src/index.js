@@ -283,6 +283,7 @@ app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/report", reportRouter);
 // app.use("/profilepicture", express.static(`${__dirname}/public/profilePictures`));
+app.use("/static", express.static(`${__dirname}/public`));
 // app.use("/products", express.static(`${__dirname}/public/products`));
 app.use("/api/category", categoryRouter);
 app.use("/api/warehouse", warehouseRouter);
