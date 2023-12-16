@@ -18,29 +18,31 @@ import VerificationTab from "./components/VerificationTab/VerificationTab";
 const userToken = Cookies.get("user_token");
 let socket;
 if (userToken) {
-  socket = io(process.env.REACT_APP_API_BASE_URL || "http://localhost:8000", {
-    query: { userToken },
-  });
+    socket = io("http://localhost:8000", {
+        query: { userToken },
+    });
 }
 function App() {
-  const { is_verified } = useSelector((state) => state.user);
-  const location = useLocation();
+    const { is_verified } = useSelector((state) => state.user);
+    const location = useLocation();
 
-  const currentPath = location.pathname;
+    const currentPath = location.pathname;
 
-  return (
-    <>
-      {/* <Provider store={store}> */}
-      <Nav />
-      {is_verified === false && currentPath !== "/verification" && (
-        <VerificationTab is_verified={is_verified} />
-      )}
-      <Routes>{routes.map((value) => value)}</Routes>
-      <Footer />
-      <Toaster position="top-center" />
-      {/* </Provider> */}
-    </>
-  );
+
+
+    return (
+        <>
+            {/* <Provider store={store}> */}
+            <Nav />
+            {is_verified === false && currentPath !== "/verification" && (
+                <VerificationTab is_verified={is_verified} />
+            )}
+            <Routes>{routes.map((value) => value)}</Routes>
+            <Footer />
+            <Toaster position="top-center" />
+            {/* </Provider> */}
+        </>
+    );
 }
 
 export default App;

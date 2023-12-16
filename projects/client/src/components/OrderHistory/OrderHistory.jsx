@@ -14,7 +14,7 @@ import io from "socket.io-client";
 const userToken = Cookies.get("user_token");
 let socket;
 if (userToken) {
-  socket = io(process.env.REACT_APP_API_BASE_URL || "http://localhost:8000", {
+  socket = io("http://localhost:8000", {
     query: { userToken },
   });
 }
@@ -100,6 +100,7 @@ const OrderHistory = ({
       const res = await axiosInstance.post("/order/cancel-order", {
         transaction_uid: transaction_uid,
       });
+
     } catch (error) {
       console.log(error);
     }
@@ -196,6 +197,7 @@ const OrderHistory = ({
           <table className="w-full">
             <tbody className=" w-full ">
               {orderHistory.map((value, index) => {
+
                 return (
                   <tr
                     key={index}
