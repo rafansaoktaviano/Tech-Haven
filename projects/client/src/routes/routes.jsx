@@ -51,7 +51,7 @@ import RequestAdmin from "../components/AdminDashboard/RequestAdmin";
 const userToken = Cookies.get("user_token");
 let socket;
 if (userToken) {
-  socket = io("http://localhost:8000/", {
+  socket = io(process.env.REACT_APP_API_BASE_URL || "http://localhost:8000/", {
     query: { userToken },
   });
 }
