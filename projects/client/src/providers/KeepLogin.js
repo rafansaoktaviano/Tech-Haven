@@ -1,26 +1,25 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import { login } from "../redux/Features/auth";
 import { useEffect } from "react";
 import axiosInstance from "../config/api";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/Features/auth";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const KeepLogin = ({ children }) => {
     const userSelector = useSelector((state) => state.user);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const refresh = async () => {
         const loginToken = Cookies.get("user_token");
 
-        const userData = await axiosInstance.get(
-            `/auth/userdata/${loginToken}`
-        );
-
-        if (userData) {
+        try {
+            const userData = await axiosInstance.get(`/auth/userdata/${loginToken}`);
             dispatch(login(userData.data.result));
-        } else {
-            navigate("/login");
+        } catch (error) {
+            // Handle the case when the refresh token is invalid or expired
+            // Redirect to login or perform necessary actions
+            console.error("Failed to refresh token:", error);
         }
     };
 
@@ -28,7 +27,7 @@ const KeepLogin = ({ children }) => {
         if (!userSelector.id) {
             refresh();
         }
-    }, []);
+    }, [userSelector.id]);
 
     return children;
 };
