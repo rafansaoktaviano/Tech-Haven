@@ -26,10 +26,22 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "avnadmin",
+    "password": "AVNS_bz3ho8ZiwNxBQaudDmw",
+    "database": "defaultdb",
+    "host": "techhaven-ravansaoktaviano.a.aivencloud.com",
+    "dialect": "mysql",
+    "port": 16849,
+    "options": {
+      "dialect": "mysql",
+      "define": {
+        "timestamps": false
+      },
+      "timezone": "+00:00",
+      "operatorsAliases": false,
+      "logging": true,
+      "searchPath": "public,myapp",
+      "sql_mode": "NO_ENGINE_SUBSTITUTION"
+    }
   }
 }
