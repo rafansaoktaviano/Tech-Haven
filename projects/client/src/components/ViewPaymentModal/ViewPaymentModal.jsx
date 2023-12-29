@@ -19,7 +19,8 @@ const ViewPaymentModal = ({
   const handleConfirm = async () => {
     try {
       const res = await axiosInstance.put("/order/confirm", {
-        products: ordersDetails, users_id: order.users_id
+        products: ordersDetails,
+        users_id: order.users_id,
       });
 
       toast.success(res.data.message);
@@ -28,7 +29,7 @@ const ViewPaymentModal = ({
       setIsRefreshing(true);
     } catch (error) {
       console.log(error);
-    }finally{
+    } finally {
       setTimeout(() => {
         setIsRefreshing(false);
       }, 1000);
@@ -73,7 +74,12 @@ const ViewPaymentModal = ({
       }, 1000);
     }
   };
- 
+  console.log(
+    `${
+      process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
+    }${order?.payment_proof?.substring(6)}`
+  );
+
   return (
     <Modal
       style={customStyle}
@@ -104,14 +110,14 @@ const ViewPaymentModal = ({
           {/* <img className="w-full h-[100px]" src={order?.payment_proof?.substring(6)} alt="" /> */}
           <a
             href={`${
-              process.env.REACT_APP_IMAGE_SERVER_URL
+              process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
             }${order?.payment_proof?.substring(6)}`}
             target="_blank"
           >
             <img
               className="w-full h-[300px]"
               src={`${
-                process.env.REACT_APP_IMAGE_SERVER_URL
+                process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
               }${order?.payment_proof?.substring(6)}`}
               alt=""
             />

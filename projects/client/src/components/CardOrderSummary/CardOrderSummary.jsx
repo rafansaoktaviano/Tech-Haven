@@ -2,7 +2,9 @@ import React from "react";
 import { getCartAsync } from "./../../redux/Features/order";
 import { useDispatch, useSelector } from "react-redux";
 const CardOrderSummary = ({ cartData }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+ 
+
   return (
     <>
       {cartData.map((value, index) => {
@@ -11,7 +13,7 @@ const CardOrderSummary = ({ cartData }) => {
             <img
               className="w-[20%] h-[64px]  "
               src={`${
-                process.env.REACT_APP_IMAGE_SERVER_URL
+                process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
               }${value?.product?.products_images[0]?.image?.substring(6)}`}
               alt=""
             />

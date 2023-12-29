@@ -291,7 +291,7 @@ app.use("/api/stock", stockRouter);
 app.use("/api/rajaongkir", rajaOngkirRouter);
 
 app.get("/api", (req, res) => {
-  res.send(`Hello, this is my API`);
+  res.send(`Hello, this is my API HEHEHE`);
 });
 
 app.get("/api/greetings", (req, res, next) => {

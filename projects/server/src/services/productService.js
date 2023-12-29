@@ -93,7 +93,20 @@ module.exports = {
           },
         ],
         where: { id: id },
+        group: [
+          "products.id", // Include all non-aggregated columns in the GROUP BY clause
+          "products.product_name",
+          "products.product_description",
+          "products.product_price",
+          "products.product_weight",
+          "products.product_status",
+          "products_category.id",
+          "products_category.category",
+          "products_images.id",
+          "products_images.image",
+        ],
       });
+
       return data;
     } catch (error) {
       return error;

@@ -1,10 +1,22 @@
 {
   "development": {
-    "username": "upa5smrwdzoll6fs",
-    "password": "DJL3FZAIJ9N4SwrJCNYI",
-    "database": "brvo4inoxlkicfyc6hnt",
-    "host": "brvo4inoxlkicfyc6hnt-mysql.services.clever-cloud.com",
-    "dialect": "mysql"
+    "username": "avnadmin",
+    "password": "AVNS_bz3ho8ZiwNxBQaudDmw",
+    "database": "defaultdb",
+    "host": "techhaven-ravansaoktaviano.a.aivencloud.com",
+    "dialect": "mysql",
+    "port": 16849,
+    "options": {
+      "dialect": "mysql",
+      "define": {
+        "timestamps": false
+      },
+      "timezone": "+00:00",
+      "operatorsAliases": false,
+      "logging": true,
+      "searchPath": "public,myapp",
+      "sql_mode": "NO_ENGINE_SUBSTITUTION"
+    }
   },
   "test": {
     "username": "root",

@@ -12,7 +12,6 @@ export default function Protected({
 }) {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState("");
-  console.log(user);
   const getUser = async () => {
     try {
       const data = await axiosInstance.get(

@@ -134,7 +134,6 @@ const [admin, setAdmin] = useState()
                   <h1 className="py-[16px] px-[24px]  ">Shopping Cart</h1>
                   <div className="px-[24px] h-[220px] overflow-auto py-[20px] border-y-[2px] ">
                     {cart?.map((value, index) => {
-                      console.log(value);
                       return (
                         <div
                           key={index}
@@ -144,7 +143,7 @@ const [admin, setAdmin] = useState()
                             <img
                               className="w-[80px] h-[80px] "
                               src={`${
-                                process.env.REACT_APP_IMAGE_SERVER_URL
+                                process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
                               }${value.product?.products_images[0]?.image?.substring(
                                 6
                               )}`}

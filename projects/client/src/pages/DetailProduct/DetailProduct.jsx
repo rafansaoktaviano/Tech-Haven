@@ -19,6 +19,8 @@ const DetailProduct = () => {
     setQuantity(quantity + 1);
   };
 
+  
+
   const dispatch = useDispatch();
 
   const handleDecrement = () => {
@@ -62,6 +64,7 @@ const DetailProduct = () => {
     try {
       const res = await axiosInstance.get(`/product/${idProduct}`);
       setProduct(res.data);
+      console.log(res);
     } catch (error) {
       console.log(error.response.data.message);
     }

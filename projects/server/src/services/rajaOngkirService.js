@@ -1,12 +1,18 @@
 const db = require("../models");
 const axios = require("axios");
 
+
+require("dotenv").config();
+
 // const key = "444bbf4c27b3522ec578ebc1b1f75e95";
 // const requestUrl = "https://api.rajaongkir.com/starter/cost";
 const key = process.env.RAJAONGKIRKEY;
 const requestUrl = process.env.RAJAONGKIR;
+
 module.exports = {
   getShippingMethod: async (datas) => {
+    console.log(key);
+console.log(requestUrl);
     try {
       console.log(datas);
       const config = {
@@ -21,7 +27,7 @@ module.exports = {
         weight: datas.weight,
         courier: datas.courier,
       };
-      
+
       const getShippingMethod = await axios.post(requestUrl, payload, config);
       return getShippingMethod.data;
     } catch (error) {
@@ -29,12 +35,12 @@ module.exports = {
     }
   },
 
-  getAllCities: async ({provinces_id}) => {
+  getAllCities: async ({ provinces_id }) => {
     try {
       // console.log(provinces_id);
-      where = {}
-      if(provinces_id) where.provinces_id = provinces_id
-      const getRajaOngkir = await db.tb_ro_cities.findAll({where});
+      where = {};
+      if (provinces_id) where.provinces_id = provinces_id;
+      const getRajaOngkir = await db.tb_ro_cities.findAll({ where });
       return getRajaOngkir;
     } catch (error) {
       return error;
@@ -49,5 +55,4 @@ module.exports = {
       return error;
     }
   },
-
 };

@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <KeepLogin>
+      {/* <KeepLogin> */}
         <NextUIProvider>
           <App />
         </NextUIProvider>
-      </KeepLogin>
+      {/* </KeepLogin> */}
     </BrowserRouter>
   </Provider>
 );

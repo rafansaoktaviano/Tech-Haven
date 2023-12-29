@@ -34,7 +34,7 @@ const CartTableList = ({
                     <img
                       className="w-[72px] img-table h-[72px] sm:w-[56px] sm:h-[56px]"
                       src={`${
-                        process.env.REACT_APP_IMAGE_SERVER_URL
+                        process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
                       }${value?.product?.products_images[0]?.image?.substring(
                         6
                       )}`}

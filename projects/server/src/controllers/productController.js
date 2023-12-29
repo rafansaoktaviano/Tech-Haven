@@ -15,6 +15,7 @@ module.exports = {
 
   productDetail: async (req, res, next) => {
     try {
+
       const data = await productService.getProductDetails(req.params);
       res.status(200).send(data);
     } catch (error) {

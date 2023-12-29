@@ -26,7 +26,7 @@ const ProductTableViewDetails = ({ orderDetails }) => {
                   <img
                     className="w-[72px] h-[72px]"
                     src={`${
-                      process.env.REACT_APP_IMAGE_SERVER_URL
+                      process.env.REACT_APP_IMAGE_SERVER_URL_IMAGE
                     }${value?.product?.products_images[0]?.image?.substring(
                       6
                     )}`}

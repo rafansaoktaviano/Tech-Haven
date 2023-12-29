@@ -27,6 +27,7 @@ const AddressModal = ({
   setModalIsOpen,
   setShippingOptions,
 }) => {
+
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -177,8 +178,17 @@ const AddressModal = ({
               btnName="Confirm"
               btnCSS="w-full text-white rounded-[16px] h-[42px]"
               onClick={() => {
-                handleConfirmChangeAddress(value);
-                setShippingOptions([]);
+                try {
+                  if (typeof handleConfirmChangeAddress === 'function') {
+                    handleConfirmChangeAddress(value);
+                  }
+            
+                  if (typeof setShippingOptions === 'function') {
+                    setShippingOptions([]);
+                  }
+                } catch (error) {
+                  console.error('Error in onClick:', error);
+                }
               }}
             />
           </div>

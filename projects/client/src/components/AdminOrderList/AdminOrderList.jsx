@@ -18,7 +18,6 @@ const AdminOrderList = ({ setIsRefreshing, isRefreshing, refreshOrders }) => {
   const [warehouse2, setWarehouse2] = useState("");
   const [warehouses, setWarehouses] = useState([]);
 
-
   const [maxPages, setMaxPages] = useState(null);
 
   const cardsPerPage = 8; // Number of cards to display per page
@@ -60,7 +59,7 @@ const AdminOrderList = ({ setIsRefreshing, isRefreshing, refreshOrders }) => {
       setMaxPages(res.data.maxPages);
       console.log(res);
     } catch (error) {
-      alert(error.data.message);
+      alert(error.response.data.message);
     }
   };
 

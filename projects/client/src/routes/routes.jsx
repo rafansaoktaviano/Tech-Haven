@@ -51,10 +51,12 @@ import RequestAdmin from "../components/AdminDashboard/RequestAdmin";
 const userToken = Cookies.get("user_token");
 let socket;
 if (userToken) {
-  socket = io(process.env.REACT_APP_API_BASE_URL || "http://localhost:8000/", {
+  socket = io(process.env.REACT_APP_API_SOCKET_URL || "http://localhost:8000/", {
     query: { userToken },
   });
 }
+
+
 // import Protected from "./Protected";
 
 const SideBar = ({ children }) => {
@@ -79,7 +81,6 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     if (userToken) {
       socket.on("reject", (message) => {
-
         Swal.fire({
           position: "top-end",
           icon: "warning",
@@ -101,7 +102,6 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     if (userToken) {
       socket.on("Package Sent", (message) => {
-
         Swal.fire({
           position: "top-end",
           icon: "warning",
@@ -123,7 +123,6 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     if (userToken) {
       socket.on("Package Arrived", (message) => {
-
         Swal.fire({
           position: "top-end",
           icon: "warning",
@@ -145,7 +144,6 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     if (userToken) {
       socket.on("accept", (message) => {
-
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -263,7 +261,6 @@ const SideBarAdmin = ({ children }) => {
   useEffect(() => {
     if (userToken) {
       socket.on("upload", (message) => {
-
         try {
           Swal.fire({
             position: "top-end",
@@ -303,7 +300,6 @@ const SideBarAdmin = ({ children }) => {
               : "h-[718px]"
           } right w-full   rounded-[4px] border-[1px] shadow-xl `}
         >
-          {/* {children} */}
           {React.cloneElement(children, {
             refreshOrders,
             setIsRefreshing,
@@ -550,15 +546,15 @@ const routes = [
     }
   />,
   <Route
-  path="/admin/request"
-  element={
-    <Protected ownerPage={true}>
-      <SideBarAdmin>
-        <RequestAdmin />
-      </SideBarAdmin>
-    </Protected>
-  }
-/>,
+    path="/admin/request"
+    element={
+      <Protected ownerPage={true}>
+        <SideBarAdmin>
+          <RequestAdmin />
+        </SideBarAdmin>
+      </Protected>
+    }
+  />,
   <Route
     path="/admin/orders"
     element={

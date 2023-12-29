@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
 
 const CardProduct = ({ data, addToCart }) => {
-
   const datas = data;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,10 +53,11 @@ const CardProduct = ({ data, addToCart }) => {
             : `flex justify-center align-middle galeri items-center gap-5`
         }
       >
-        {datas && datas.length > 0 ? (
+        {datas && datas.length  > 0 ? (
           currentData.map((item, index) => {
             return (
               <Card
+                key={index}
                 className="pb-4 w-[40%] sm:w-[23%] md:w-[23%] lg:w-[20%] xl:w-[17%]"
                 isPressable
               >

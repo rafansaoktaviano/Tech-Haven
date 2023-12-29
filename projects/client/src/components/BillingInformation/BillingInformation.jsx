@@ -58,10 +58,10 @@ const BillingInformation = ({
           courier: courierValue.toLocaleLowerCase(),
         }
       );
+      setShippingOptions(getShippingOptions.data.data);
 
       setShippingPrice("");
       setNearestWarehouse(getShippingOptions.data.nearestWarehouse);
-      setShippingOptions(getShippingOptions.data.data);
       toast.dismiss(loading);
     } catch (error) {
       toast.error(error.response.data.message);

@@ -67,7 +67,7 @@ const OrderViewDetails = ({ setTabValue }) => {
         }`}
       >
         <div
-          onClick={() => setTabValue(2)}
+          // onClick={() => setTabValue(2)}
           className="cursor-pointer px-[24px] py-[16px] flex mb-[24px]  items-center gap-3 border-b-2"
         >
           <HiOutlineArrowSmLeft className="text-[24px]" />

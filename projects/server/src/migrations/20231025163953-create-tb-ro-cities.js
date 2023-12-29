@@ -3,14 +3,10 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("tb_ro_cities", {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
       city_id: {
         type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
       },
       city_name: {
         type: Sequelize.STRING,

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import kategori1 from "../../assets/kategori1.png";
 import axiosInstance from "../../config/api";
 import { Link } from "react-router-dom";
 
@@ -24,8 +23,8 @@ const CardCategory = () => {
       {categories &&
         categories.map((item, idx) => {
           return (
-            <Link to={`/product?categori=${item.category}`}>
-              <div className="max-w-[200px] overflow-hidden hover:shadow-lg hover:border-slate-400 rounded-md min-w-[180px] max-h-[236px] border cursor-pointer">
+            <Link key={idx} to={`/product?categori=${item.category}`}>
+              <div  className="max-w-[200px] overflow-hidden hover:shadow-lg hover:border-slate-400 rounded-md min-w-[180px] max-h-[236px] border cursor-pointer">
                 <div className="">
                   <div className=" rounded-lg flex justify-center text-gray-950">
                     <img
