@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
 
 const CardProduct = ({ data, addToCart }) => {
+
   const datas = data;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
