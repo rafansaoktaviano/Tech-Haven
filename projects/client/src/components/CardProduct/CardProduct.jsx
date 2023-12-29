@@ -13,9 +13,9 @@ import ModalShowProduct from "../ModalShowProduct/ModalShowProduct";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, Image, CardBody } from "@nextui-org/react";
+import { FiRefreshCw } from "react-icons/fi";
 
 const CardProduct = ({ data, addToCart }) => {
-
   const datas = data;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +54,7 @@ const CardProduct = ({ data, addToCart }) => {
             : `flex justify-center align-middle galeri items-center gap-5`
         }
       >
-        {datas && datas.length  > 0 ? (
+        {datas && datas.length > 0 ? (
           currentData.map((item, index) => {
             return (
               <Card
@@ -89,12 +89,16 @@ const CardProduct = ({ data, addToCart }) => {
             );
           })
         ) : (
-          <div className=" text-center m-auto ">
-            <h2 className="text-2xl font-bold mb-4">Produk Tidak Ditemukan</h2>
-            <p className="text-gray-600">
-              Maaf, produk yang Anda cari tidak tersedia dalam kategori ini.
-            </p>
-          </div>
+          <FiRefreshCw
+            className={`font-bold text-[35px] ${
+              datas && datas.length === 0
+                ? "spin"
+                : datas === null
+                ? "spin"
+                : ""
+            }`}
+          />
+          // <div></div>
         )}
       </div>
       {datas && datas.length > itemsPerPage - 1 ? (
