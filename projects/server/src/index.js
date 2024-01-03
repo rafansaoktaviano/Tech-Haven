@@ -18,7 +18,7 @@ const { verifyToken } = require("./lib/jwt");
 
 const io = socketIo(server, {
   cors: {
-    origin: "tech-haven-client.vercel.app" || "http://localhost:3000", // Replace with your client's URL
+    origin: process.env.CORS_FE_URL || "http://localhost:3000", // Replace with your client's URL
     methods: ["GET", "POST", "PUT"],
   },
 });
@@ -28,7 +28,7 @@ const corsOptions = {
 };
 
 app.use(
-  cors(corsOptions)
+  cors()
   //   {
   //     origin: [
   //         process.env.WHITELISTED_DOMAIN &&
