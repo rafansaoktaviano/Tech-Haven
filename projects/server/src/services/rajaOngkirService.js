@@ -1,18 +1,18 @@
 const db = require("../models");
 const axios = require("axios");
 
-
 require("dotenv").config();
 
 // const key = "444bbf4c27b3522ec578ebc1b1f75e95";
 // const requestUrl = "https://api.rajaongkir.com/starter/cost";
-const key = process.env.RAJAONGKIRKEY;
-const requestUrl = process.env.RAJAONGKIR;
+const key = process.env.RAJAONGKIRKEY || "444bbf4c27b3522ec578ebc1b1f75e95 ";
+const requestUrl =
+  process.env.RAJAONGKIR || "https://api.rajaongkir.com/starter/cost";
 
 module.exports = {
   getShippingMethod: async (datas) => {
     console.log(key);
-console.log(requestUrl);
+    console.log(requestUrl);
     try {
       console.log(datas);
       const config = {

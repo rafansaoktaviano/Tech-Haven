@@ -18,14 +18,13 @@ const { verifyToken } = require("./lib/jwt");
 
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://tech-haven-client.vercel.app/"], // Replace with your client's URL
-    methods: ["GET", "POST"],
+    origin: "tech-haven-client.vercel.app" || "http://localhost:3000", // Replace with your client's URL
+    methods: ["GET", "POST", "PUT"],
   },
 });
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://tech-haven-client.vercel.app'],
-  methods: ['GET', 'POST'], // Add other methods as needed
-  // other options if needed
+  origin: ["http://localhost:3000", "https://tech-haven-client.vercel.app"],
+  methods: ["GET", "POST", "PUT"],
 };
 
 app.use(
