@@ -23,7 +23,6 @@ if (userToken) {
   });
 }
 
-console.log(process.env.REACT_APP_API_SOCKET_URL );
 function App() {
   const { is_verified } = useSelector((state) => state.user);
   const location = useLocation();
