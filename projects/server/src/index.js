@@ -23,7 +23,7 @@ const io = socketIo(server, {
   },
 });
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://tech-haven-client.vercel.app"],
+  origin: process.env.CORS_FE_URL || "http://localhost:3000",
   methods: ["GET", "POST", "PUT"],
 };
 
