@@ -18,25 +18,16 @@ const { verifyToken } = require("./lib/jwt");
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CORS_FE_URL , // Replace with your client's URL
+    origin: "*", 
     methods: ["GET", "POST", "PUT"],
   },
 });
-const corsOptions = {
-  origin: "*" ,
-  methods: ["GET", "POST", "PUT"],
-};
-
-
 
 app.use(
-  cors()
-  //   {
-  //     origin: [
-  //         process.env.WHITELISTED_DOMAIN &&
-  //             process.env.WHITELISTED_DOMAIN.split(","),
-  //     ],
-  // }
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"],
+  })
 );
 
 app.use(express.static("public"));
