@@ -47,10 +47,13 @@ const storage = multer.diskStorage({
   // Ini setup untuk storagenya, dimana letaknya kita akan menyimpan data
   destination: async (req, file, cb) => {
     try {
-      if (!fs.existsSync(defaultPath)) {
+      const isDirectoryExist = fs.existsSync(defaultPath);
+
+      if (!isDirectoryExist) {
+        //Kondisi jika directory belum dibuat atau gak ada, ini bakalan membuat directory baru
         await fs.promises.mkdir(defaultPath, { recursive: true });
       }
-      cb(null, defaultPath);
+      cb(null, `${defaultPath}`);
     } catch (error) {
       console.error("Error creating directory:", error);
       cb(error);
