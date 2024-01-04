@@ -23,8 +23,23 @@ const io = socketIo(server, {
   },
 });
 
+const whitelist = [
+  "http://tech-haven-client.vercel.app",
+  "https://tech-haven-client.vercel.app",
+  "http://localhost:3000",
+  "http://localhost:8000",
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.static("public"));
 app.use(express.json());

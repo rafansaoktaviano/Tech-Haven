@@ -6,9 +6,7 @@ const CardCategory = () => {
   const [categories, setCategories] = useState([]);
   const getKategori = async () => {
     try {
-      const data = await axiosInstance.get(
-        `http://localhost:8000/api/category`
-      );
+      const data = await axiosInstance.get(`/category`);
       setCategories(data.data);
     } catch (error) {
       console.log(error);
@@ -24,7 +22,7 @@ const CardCategory = () => {
         categories.map((item, idx) => {
           return (
             <Link key={idx} to={`/product?categori=${item.category}`}>
-              <div  className="max-w-[200px] overflow-hidden hover:shadow-lg hover:border-slate-400 rounded-md min-w-[180px] max-h-[236px] border cursor-pointer">
+              <div className="max-w-[200px] overflow-hidden hover:shadow-lg hover:border-slate-400 rounded-md min-w-[180px] max-h-[236px] border cursor-pointer">
                 <div className="">
                   <div className=" rounded-lg flex justify-center text-gray-950">
                     <img
