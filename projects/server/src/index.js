@@ -18,14 +18,16 @@ const { verifyToken } = require("./lib/jwt");
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CORS_FE_URL || "http://localhost:3000", // Replace with your client's URL
+    origin: process.env.CORS_FE_URL , // Replace with your client's URL
     methods: ["GET", "POST", "PUT"],
   },
 });
 const corsOptions = {
-  origin: process.env.CORS_FE_URL || "http://localhost:3000",
+  origin: process.env.CORS_FE_URL ,
   methods: ["GET", "POST", "PUT"],
 };
+
+console.log('CORS Frontend URL:', process.env.CORS_FE_URL);
 
 app.use(
   cors(corsOptions)
