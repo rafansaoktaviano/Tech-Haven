@@ -42,7 +42,7 @@ const multer = require("multer");
 const fs = require("fs");
 // var public = require('.././');
 
-const defaultPath = require("../public"); // ini diisi dengan folder tujuan dimana kita akan ngesave uploadan user
+const defaultPath = "src/public"; // ini diisi dengan folder tujuan dimana kita akan ngesave uploadan user
 const storage = multer.diskStorage({
   // Ini setup untuk storagenya, dimana letaknya kita akan menyimpan data
   destination: async (req, file, cb) => {
