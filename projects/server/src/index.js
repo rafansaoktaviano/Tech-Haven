@@ -23,14 +23,14 @@ const io = socketIo(server, {
   },
 });
 const corsOptions = {
-  origin: process.env.CORS_FE_URL ,
+  origin: "*" ,
   methods: ["GET", "POST", "PUT"],
 };
 
-console.log('CORS Frontend URL:', process.env.CORS_FE_URL);
+
 
 app.use(
-  cors(corsOptions)
+  cors()
   //   {
   //     origin: [
   //         process.env.WHITELISTED_DOMAIN &&

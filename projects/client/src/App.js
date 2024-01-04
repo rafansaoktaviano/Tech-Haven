@@ -18,10 +18,11 @@ import VerificationTab from "./components/VerificationTab/VerificationTab";
 const userToken = Cookies.get("user_token");
 let socket;
 if (userToken) {
-  socket = io(process.env.REACT_APP_API_SOCKET_URL || "http://localhost:8000", {
+  socket = io(process.env.REACT_APP_API_SOCKET_URL , {
     query: { userToken },
   });
 }
+console.log(socket);
 
 function App() {
   const { is_verified } = useSelector((state) => state.user);
