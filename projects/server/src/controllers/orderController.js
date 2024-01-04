@@ -407,7 +407,7 @@ const orderController = {
   getShippingMethod: async (req, res, next) => {
     try {
       const { cities_id, weight, courier } = req.body;
-      console.log(cities_id, weight,courier);
+      console.log(cities_id, weight, courier);
 
       if (!courier) throw { message: "Select a Courier" };
       if (courier === "select a courier") throw { message: "Select a Courier" };
@@ -474,9 +474,6 @@ const orderController = {
         transaction_uid,
         userId
       );
-
-       
-
 
       res.status(200).send({
         isError: false,
@@ -589,8 +586,8 @@ const orderController = {
         transaction_uid
       );
 
-        console.log(adminData.dataValues.warehouses_id,);
-        console.log(transaction_uid);
+      console.log(adminData.dataValues.warehouses_id);
+      console.log(transaction_uid);
 
       const adminOrdersApprovalDetails = await orderApprovalDetails(
         adminData.dataValues.warehouses_id,
@@ -676,7 +673,7 @@ const orderController = {
             while (true) {
               const lat = await getLatLong(value.warehouses_id);
 
-              console.log(lat , ids);
+              console.log(lat, ids);
 
               nearestWarehouse = await getWarehouseTerdekat3(lat, ids);
 
@@ -817,7 +814,6 @@ const orderController = {
         page,
         req.query.warehouses_id
       );
-
 
       res.send({
         isError: false,
