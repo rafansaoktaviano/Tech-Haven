@@ -23,20 +23,11 @@ const io = socketIo(server, {
   },
 });
 
-const whitelist = [
-  "http://tech-haven-client.vercel.app",
-  "https://tech-haven-client.vercel.app",
-  "http://localhost:3000",
-  "http://localhost:8000",
-];
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "https://tech-haven-client.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
